@@ -11,9 +11,13 @@ package Estructuras;
 public class Proteina {
     String nombre;
     Proteina sig;
+    boolean visitado;
+    ListaAdy adyacentes;
     
     public Proteina(String name){
         this.nombre = name;
         this.sig = null;
+        visitado = false;
+        adyacentes = new ListaAdy();
     }
 }
