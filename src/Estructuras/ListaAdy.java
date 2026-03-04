@@ -59,10 +59,13 @@ public class ListaAdy {
                aux= aux.sig;
 
            }
+           if(aux == null){
+               return null;
+           }
            return aux.proteina;
                  
              }else{
-             System.out.println("la lista esta vacia");
+             //System.out.println("la lista esta vacia");
          }
          return null;
          }

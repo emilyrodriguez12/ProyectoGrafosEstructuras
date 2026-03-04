@@ -169,4 +169,42 @@ public class Grafo {
         return recorridos;
     }
 
+    public ListaAdy[] BFS() {
+        Cola cola = new Cola();
+
+        ListaAdy[] recorridos = new ListaAdy[this.numero_nodos];
+        int i = 0;
+
+        Proteina vertice = this.vertices.pfirst;
+
+        while (vertice != null) {
+            if (!vertice.visitado) {
+                Proteina aux = vertice;
+                aux.visitado = true;
+
+                while (aux != null) {
+
+                    recorridos[i].insertar(aux, 0);
+                    Nodo_Adyacencia aux2 = aux.adyacentes.pfirst;
+                    while (aux2 != null) {
+                        if (!aux2.proteina.visitado) {
+                            cola.Encolar(aux2.proteina, 0);
+                            aux2.proteina.visitado = true;
+
+                        }
+                        aux2 = aux2.sig;
+
+                    }
+                    aux = cola.Desencolar().proteina;
+
+                }
+                i++;
+
+            }
+            vertice = vertice.sig;
+
+        }
+        return recorridos;
+    }
+
 }

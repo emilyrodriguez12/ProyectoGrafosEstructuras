@@ -27,7 +27,7 @@ public class Lista_Proteinas {
            return aux;
                  
              }else{
-             System.out.println("la lista esta vacia");
+             //System.out.println("la lista esta vacia");
          }
          return null;
          }

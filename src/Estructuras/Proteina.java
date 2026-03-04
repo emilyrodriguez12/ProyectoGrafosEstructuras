@@ -9,7 +9,7 @@ package Estructuras;
  * @author MARYCRIS
  */
 public class Proteina {
-    String nombre;
+    public String nombre;
     Proteina sig;
     boolean visitado;
     ListaAdy adyacentes;

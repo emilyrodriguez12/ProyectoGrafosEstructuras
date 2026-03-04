@@ -6,7 +6,7 @@ package Estructuras;
 
 /**
  *
- * @author Daniel
+ * @author MARYCRIS
  */
 public class Nodo_Adyacencia {
     Nodo_Adyacencia sig;

@@ -6,7 +6,7 @@ package Estructuras;
 
 /**
  *
- * @author Daniel
+ * @author MARYCRIS
  */
 public class Cola {
     Nodo_Adyacencia primero;
@@ -40,5 +40,5 @@ public class Cola {
         return null;
     }
     
-    
+
 }
