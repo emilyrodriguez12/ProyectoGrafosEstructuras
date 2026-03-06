@@ -472,4 +472,14 @@ public class Grafo {
             javax.swing.JOptionPane.showMessageDialog(null, "Error al guardar el archivo: " + e.getMessage());
         }
     }
+    
+    public boolean existeArista(String origen, String destino) {
+    Proteina p = this.vertices.buscar(origen);
+        if (p != null && p.adyacentes != null) {
+            if (p.adyacentes.buscar(destino) != null) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
