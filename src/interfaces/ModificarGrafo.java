@@ -13,12 +13,14 @@ import Estructuras.Grafo;
 public class ModificarGrafo extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ModificarGrafo.class.getName());
-    Grafo g;
+    static Grafo g;
     /**
      * Creates new form ModificarGrafo
      */
-    public ModificarGrafo() {
+    public ModificarGrafo(Grafo g) {
         initComponents();
+                this.g = g;
+        this.setVisible(true);
     }
 
     /**
@@ -43,6 +45,7 @@ public class ModificarGrafo extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
@@ -94,15 +97,20 @@ public class ModificarGrafo extends javax.swing.JFrame {
 
         rel.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         rel.setText("Relación");
-        jPanel2.add(rel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 210, -1));
+        jPanel2.add(rel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, 210, 50));
 
         nombre.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         nombre.setText("Nombre");
-        jPanel2.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 210, -1));
+        nombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nombreActionPerformed(evt);
+            }
+        });
+        jPanel2.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 210, 50));
 
         peso.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         peso.setText("Peso");
-        jPanel2.add(peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 210, -1));
+        jPanel2.add(peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 510, 210, 50));
 
         jButton3.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jButton3.setText("Agregar proteina ");
@@ -111,7 +119,7 @@ public class ModificarGrafo extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, -1, 50));
 
         jButton1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jButton1.setText("Agregar relación");
@@ -120,7 +128,7 @@ public class ModificarGrafo extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, -1, -1));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 210, 50));
 
         jButton6.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jButton6.setText("Eliminar proteina");
@@ -129,7 +137,8 @@ public class ModificarGrafo extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, -1, -1));
+        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, -1, 50));
+        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1230, 720));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 730));
 
@@ -223,7 +232,7 @@ public class ModificarGrafo extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        Menu m = new Menu();
+        Menu m = new Menu(g);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -265,6 +274,10 @@ public class ModificarGrafo extends javax.swing.JFrame {
         g.eliminarvertice(this.nombre.getText());
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nombreActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -287,7 +300,7 @@ public class ModificarGrafo extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new ModificarGrafo().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new ModificarGrafo(g).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -311,6 +324,7 @@ public class ModificarGrafo extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField nombre;

@@ -15,12 +15,12 @@ public class Lista_Proteinas {
     /**
      * Referencia al primer elemento (proteína) de la lista
      */
-    Proteina pfirst;
+    public Proteina pfirst;
     
     /**
      * Contador total de proteínas almacenadas en la lista
      */
-    int tamaño;
+    public int tamaño;
 
     
     /**

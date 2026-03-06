@@ -4,6 +4,8 @@
  */
 package interfaces;
 
+import Estructuras.Grafo;
+
 /**
  *
  * @author MARYCRIS
@@ -11,12 +13,14 @@ package interfaces;
 public class RutaCorta extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(RutaCorta.class.getName());
-
+    static Grafo g;
     /**
      * Creates new form RutaCorta
      */
-    public RutaCorta() {
+    public RutaCorta(Grafo g) {
         initComponents();
+                this.g = g;
+        this.setVisible(true);
     }
 
     /**
@@ -34,6 +38,8 @@ public class RutaCorta extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jButton3 = new javax.swing.JButton();
+        nombre = new javax.swing.JTextField();
+        rel = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -51,7 +57,7 @@ public class RutaCorta extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 400, -1, -1));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -68,6 +74,14 @@ public class RutaCorta extends javax.swing.JFrame {
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 570, -1, -1));
 
+        nombre.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        nombre.setText("Origen");
+        jPanel1.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 210, -1));
+
+        rel.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        rel.setText("Destino");
+        jPanel1.add(rel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 210, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 640));
 
         pack();
@@ -75,11 +89,12 @@ public class RutaCorta extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        this.jTextArea1.setText(g.Dijkstra(this.nombre.getText(), this.rel.getText()));
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        Menu m = new Menu();
+        Menu m = new Menu(g);
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -105,7 +120,7 @@ public class RutaCorta extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new RutaCorta().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new RutaCorta(g).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -115,5 +130,7 @@ public class RutaCorta extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField nombre;
+    private javax.swing.JTextField rel;
     // End of variables declaration//GEN-END:variables
 }

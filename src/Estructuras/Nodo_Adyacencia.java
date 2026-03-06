@@ -16,15 +16,15 @@ public class Nodo_Adyacencia {
     /**
      * Apuntador al siguiente nodo de la lista de adyacencia
      */
-    Nodo_Adyacencia sig;
+    public Nodo_Adyacencia sig;
     /**
      * referencia a la proteina con la que se tiene la interaccion
      */
-    Proteina proteina;
+    public Proteina proteina;
     /**
      * valor numerico que representa el peso o costo de la arista
      */
-    int peso;
+    public int peso;
     
     /**
      * Nombre: Nodo_Adyacencia (Constructor)

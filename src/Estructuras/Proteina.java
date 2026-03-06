@@ -20,17 +20,17 @@ public class Proteina {
     /**
      * apuntador al siguiente objeto Proteina en la lista global de vértices
      */
-    Proteina sig;
+    public Proteina sig;
     
     /**
      * Estado de exploración del nodo para algoritmos de búsqueda (BFS/DFS)
      */
-    boolean visitado;
+    public boolean visitado;
     
     /**
      * Lista de adyacencia que almacena las interacciones de esta proteína
      */
-    ListaAdy adyacentes;
+    public ListaAdy adyacentes;
     
     /**
      * Nombre: Proteina (Constructor).

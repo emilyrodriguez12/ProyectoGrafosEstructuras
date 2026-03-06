@@ -15,12 +15,12 @@ public class ListaAdy {
     /**
      * Primer nodo de la lista de adyacencia
      */
-    Nodo_Adyacencia pfirst;
+    public Nodo_Adyacencia pfirst;
     
     /**
      * Cantidad de elementos en la lista
      */
-    int tamaño;
+    public int tamaño;
 
     /**
      * Nombre: ListaAdy (Constructor)

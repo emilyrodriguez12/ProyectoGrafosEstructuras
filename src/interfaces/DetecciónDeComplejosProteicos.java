@@ -12,15 +12,17 @@ import Estructuras.ListaAdy;
  * @author MARYCRIS
  */
 public class DetecciónDeComplejosProteicos extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(DetecciónDeComplejosProteicos.class.getName());
-    Grafo g;
+    static Grafo g;
 
     /**
      * Creates new form MostrarGrafo
      */
-    public DetecciónDeComplejosProteicos() {
+    public DetecciónDeComplejosProteicos(Grafo f) {
         initComponents();
+        this.g = f;
+        this.setVisible(true);
     }
 
     /**
@@ -37,7 +39,7 @@ public class DetecciónDeComplejosProteicos extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        area = new javax.swing.JTextArea();
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -67,11 +69,11 @@ public class DetecciónDeComplejosProteicos extends javax.swing.JFrame {
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, 40));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        area.setColumns(20);
+        area.setRows(5);
+        jScrollPane1.setViewportView(area);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, -1, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 730, 290));
 
         jButton4.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jButton4.setText("Regresar");
@@ -90,9 +92,10 @@ public class DetecciónDeComplejosProteicos extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         ListaAdy[] recorrido = g.BFS();
+        this.area.setText("");
         for (int i = 0; i < recorrido.length; i++) {
-            if(recorrido[i] != null){
-                this.jTextArea1.setText(recorrido[i].imprimir());
+            if (recorrido[i] != null) {
+                this.area.setText(this.area.getText() + "\n" + recorrido[i].imprimir());
             }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -100,16 +103,18 @@ public class DetecciónDeComplejosProteicos extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         ListaAdy[] recorrido = g.DFS();
+        this.area.setText("");
+
         for (int i = 0; i < recorrido.length; i++) {
-            if(recorrido[i] != null){
-                this.jTextArea1.setText(recorrido[i].imprimir());
+            if (recorrido[i] != null) {
+                this.area.setText(this.area.getText() + "\n" + recorrido[i].imprimir());
             }
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        Menu m = new Menu();
+        Menu m = new Menu(g);
         this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -135,16 +140,16 @@ public class DetecciónDeComplejosProteicos extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new DetecciónDeComplejosProteicos().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new DetecciónDeComplejosProteicos(g).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea area;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

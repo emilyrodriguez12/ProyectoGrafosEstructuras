@@ -4,6 +4,9 @@
  */
 package proyectorodriguezsaracual;
 
+import Estructuras.Grafo;
+import interfaces.Menu;
+
 /**
  *
  * @author MARYCRIS
@@ -15,7 +18,7 @@ public class ProyectoRodriguezSaracual {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println("hola");
+        Menu m = new Menu( new Grafo());
     }
     
 }

@@ -4,6 +4,9 @@
  */
 package interfaces;
 
+import Estructuras.Grafo;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author MARYCRIS
@@ -11,12 +14,14 @@ package interfaces;
 public class Hubs extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Hubs.class.getName());
-
+    static Grafo g;
     /**
      * Creates new form Hubs
      */
-    public Hubs() {
+    public Hubs(Grafo g) {
         initComponents();
+        this.setVisible(true);
+        this.g = g;
     }
 
     /**
@@ -75,11 +80,17 @@ public class Hubs extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        try{
+        this.jTextArea1.setText(g.hubs().nombre + " con "+ g.hubs().adyacentes.tamaño + " enlaces");
+        }catch(Exception e){
+                        JOptionPane.showMessageDialog(rootPane, "error");
+
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        Menu m = new Menu();
+        Menu m = new Menu(g);
         this.dispose();
         
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -106,7 +117,7 @@ public class Hubs extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Hubs().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new Hubs(g).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
