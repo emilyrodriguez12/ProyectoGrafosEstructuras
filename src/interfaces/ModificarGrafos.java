@@ -78,7 +78,7 @@ public class ModificarGrafos extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, -1, 50));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, -1, 50));
 
         jButton6.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jButton6.setText("Eliminar proteina");
@@ -87,7 +87,7 @@ public class ModificarGrafos extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, -1, 50));
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 530, -1, 50));
 
         jButton1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jButton1.setText("Agregar relación");
@@ -96,15 +96,15 @@ public class ModificarGrafos extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 210, 50));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 210, 50));
 
         rel.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         rel.setText("Relación");
-        jPanel1.add(rel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, 210, 50));
+        jPanel1.add(rel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 210, 50));
 
         peso.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         peso.setText("Peso");
-        jPanel1.add(peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 510, 210, 50));
+        jPanel1.add(peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 400, 210, 50));
 
         jButton5.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jButton5.setText("Regresar");
@@ -132,23 +132,43 @@ public class ModificarGrafos extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        g.crearproteina(this.nombre.getText());
-        JOptionPane.showMessageDialog(rootPane, "Proteina insertada correctamente");
+    String nuevaProteina = nombre.getText().trim();
 
+    if (nuevaProteina.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Error: Debe ingresar un nombre para la proteína.");
+    } else {
+        if (g.buscar(nuevaProteina) == null) {
+            g.crearproteina(nuevaProteina);
+            JOptionPane.showMessageDialog(this, "Proteína '" + nuevaProteina + "' insertada correctamente.");
+            nombre.setText("");
+        } else {
+            JOptionPane.showMessageDialog(this, "Error: La proteína '" + nuevaProteina + "' ya existe en el grafo.");
+        }
+    }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        g.eliminarvertice(this.nombre.getText());
-                JOptionPane.showMessageDialog(rootPane, "Proteina ELIMINADA correctamente");
+    String valor = nombre.getText().trim();
 
+    if (valor.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Error: El campo de texto está vacío.");
+    } else {
+        if (g.buscar(valor) != null) {
+            g.eliminarvertice(valor);
+            JOptionPane.showMessageDialog(this, "La proteína '" + valor + "' ha sido eliminada correctamente.");
+            nombre.setText("");
+        } else {
+            JOptionPane.showMessageDialog(this, "Error: La proteína '" + valor + "' no existe en el grafo.");
+        }
+    }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try {
             g.insertararistas(this.nombre.getText(), this.rel.getText(), Integer.parseInt(this.peso.getText()));
-            JOptionPane.showMessageDialog(rootPane, "Relaicon insertada correctamente");
+            JOptionPane.showMessageDialog(rootPane, "Relación insertada correctamente");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, "error");
 
