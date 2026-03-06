@@ -166,7 +166,7 @@ public class Menu extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 390, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, -1, -1));
 
         jButton2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jButton2.setText("Mostrar grafo");
@@ -175,7 +175,7 @@ public class Menu extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, -1, -1));
 
         jButton3.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jButton3.setText("Deteccion de complejos proteicos");
@@ -184,7 +184,7 @@ public class Menu extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 350, -1, -1));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 370, -1, -1));
 
         jButton4.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jButton4.setText("Encontrar ruta corta");
@@ -193,7 +193,7 @@ public class Menu extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 270, -1, -1));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 280, -1, -1));
 
         jButton5.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jButton5.setText("Hubs");
@@ -202,7 +202,7 @@ public class Menu extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 180, -1, -1));
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 190, -1, -1));
 
         jButton6.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jButton6.setText("Leer CSV");
@@ -211,7 +211,7 @@ public class Menu extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, -1, -1));
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, -1, -1));
 
         jButton7.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jButton7.setText("Guardar");
@@ -220,7 +220,7 @@ public class Menu extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, -1, -1));
+        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 650));
 
