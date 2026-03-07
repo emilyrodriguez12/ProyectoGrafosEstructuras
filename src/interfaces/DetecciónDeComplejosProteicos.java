@@ -8,8 +8,12 @@ import Estructuras.Grafo;
 import Estructuras.ListaAdy;
 
 /**
- *
- * @author MARYCRIS
+ * Nombre: DetecciónDeComplejosProteicos Descripcion general: Interfaz grafica
+ * (JFrame) que permite visualizar la deteccion de complejos proteicos mediante 
+ * los algoritmos de busqueda BFS (anchura) y DFS (profundidad)
+ * Tipo de retorno: void (Clase)
+ * * * @author EDaniel Saracual
+ * * @author Emily Rodriguez
  */
 public class DetecciónDeComplejosProteicos extends javax.swing.JFrame {
 
@@ -17,7 +21,11 @@ public class DetecciónDeComplejosProteicos extends javax.swing.JFrame {
     static Grafo g;
 
     /**
-     * Creates new form MostrarGrafo
+     * Nombre: DetecciónDeComplejosProteicos (Constructor) Descripcion general: Crea e
+     * inicializa los componentes de la ventana recibiendo el grafo actual
+     * Tipo de retorno: DetecciónDeComplejosProteicos (Objeto)
+     *
+     * @param f Descripcion: el grafo que contiene las proteinas y sus relaciones
      */
     public DetecciónDeComplejosProteicos(Grafo f) {
         initComponents();
@@ -89,6 +97,13 @@ public class DetecciónDeComplejosProteicos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Nombre: jButton2ActionPerformed Descripcion general: Evento ejecutado al presionar
+     * el boton "BFS", realiza un recorrido en anchura en el grafo para detectar los complejos 
+     * e imprime el resultado en el area de texto Tipo de retorno: void
+     *
+     * @param evt Descripcion: el evento de accion generado por el boton
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         ListaAdy[] recorrido = g.BFS();
@@ -100,6 +115,13 @@ public class DetecciónDeComplejosProteicos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    /**
+     * Nombre: jButton3ActionPerformed Descripcion general: Evento ejecutado al presionar
+     * el boton "DFS", realiza un recorrido en profundidad en el grafo para detectar los 
+     * complejos e imprime el resultado en el area de texto Tipo de retorno: void
+     *
+     * @param evt Descripcion: el evento de accion generado por el boton
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         ListaAdy[] recorrido = g.DFS();
@@ -112,6 +134,13 @@ public class DetecciónDeComplejosProteicos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    /**
+     * Nombre: jButton4ActionPerformed Descripcion general: Evento ejecutado al presionar
+     * el boton "Regresar", cierra la ventana actual y muestra el Menu principal
+     * Tipo de retorno: void
+     *
+     * @param evt Descripcion: el evento de accion generado por el boton
+     */
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         Menu m = new Menu(g);
@@ -119,7 +148,11 @@ public class DetecciónDeComplejosProteicos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Nombre: main Descripcion general: Metodo principal que lanza la aplicacion
+     * e inicializa el aspecto visual (Look and feel) de la ventana
+     * Tipo de retorno: void
+     *
+     * @param args Descripcion: argumentos de linea de comandos enviados al ejecutar
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

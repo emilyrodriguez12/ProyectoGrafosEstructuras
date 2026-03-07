@@ -69,7 +69,7 @@ public class ModificarGrafos extends javax.swing.JFrame {
                 nombreActionPerformed(evt);
             }
         });
-        jPanel1.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 210, 50));
+        jPanel1.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 210, 50));
 
         jButton4.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jButton4.setText("Agregar proteina ");
@@ -78,7 +78,7 @@ public class ModificarGrafos extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, -1, 50));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, -1, 50));
 
         jButton6.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jButton6.setText("Eliminar proteina");
@@ -87,7 +87,7 @@ public class ModificarGrafos extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 530, -1, 50));
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 130, -1, 50));
 
         jButton1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jButton1.setText("Agregar relación");
@@ -96,15 +96,15 @@ public class ModificarGrafos extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 210, 50));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 210, 210, 50));
 
         rel.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         rel.setText("Relación");
-        jPanel1.add(rel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 210, 50));
+        jPanel1.add(rel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, 210, 50));
 
         peso.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         peso.setText("Peso");
-        jPanel1.add(peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 400, 210, 50));
+        jPanel1.add(peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, 210, 50));
 
         jButton5.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jButton5.setText("Regresar");
@@ -166,13 +166,45 @@ public class ModificarGrafos extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        try {
-            g.insertararistas(this.nombre.getText(), this.rel.getText(), Integer.parseInt(this.peso.getText()));
-            JOptionPane.showMessageDialog(rootPane, "Relación insertada correctamente");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, "error");
+    String p1 = nombre.getText().trim();
+    String p2 = rel.getText().trim();
+    String pesoTexto = peso.getText().trim();
 
+    if (p1.isEmpty() || p2.isEmpty() || pesoTexto.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Error: Todos los campos son obligatorios.");
+        return;
+    }
+
+    if (g.buscar(p1) == null || g.buscar(p2) == null) {
+        JOptionPane.showMessageDialog(this, "Error: Una o ambas proteínas no existen en el grafo.");
+        return;
+    }
+
+    if (g.existeArista(p1, p2)) {
+        JOptionPane.showMessageDialog(this, "Aviso: Esta relación ya existe en el sistema.");
+        return;
+    }
+
+    if (p1.equalsIgnoreCase(p2)) {
+        JOptionPane.showMessageDialog(this, "Error: No se permite conectar una proteína consigo misma.");
+        return;
+    }
+
+    try {
+        int pesoValor = Integer.parseInt(pesoTexto);
+        if (pesoValor < 0) {
+            JOptionPane.showMessageDialog(this, "Error: El peso debe ser un número positivo.");
+            return;
         }
+
+        g.insertararistas(p1, p2, pesoValor);
+        JOptionPane.showMessageDialog(this, "Relación creada con éxito.");
+        rel.setText("");
+        peso.setText("");
+
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Error: El peso debe ser un número entero válido.");
+    }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed

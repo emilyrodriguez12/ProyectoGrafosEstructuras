@@ -7,15 +7,22 @@ package interfaces;
 import Estructuras.Grafo;
 
 /**
- *
- * @author MARYCRIS
+ * Nombre: RutaCorta Descripcion general: Interfaz grafica (JFrame) que permite 
+ * al usuario calcular y visualizar la ruta mas corta (camino minimo) entre dos 
+ * proteinas especificas utilizando el algoritmo de Dijkstra Tipo de retorno: void (Clase)
+ * @author Daniel Saracual
+ * @author Emily Rodriguez
  */
 public class RutaCorta extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(RutaCorta.class.getName());
     static Grafo g;
     /**
-     * Creates new form RutaCorta
+     * Nombre: RutaCorta (Constructor) Descripcion general: Crea e inicializa
+     * los componentes de la ventana para calcular la ruta mas corta, recibiendo 
+     * el grafo con la red de proteinas Tipo de retorno: RutaCorta (Objeto)
+     *
+     * @param g Descripcion: el grafo actual que contiene los vertices y aristas
      */
     public RutaCorta(Grafo g) {
         initComponents();
@@ -57,7 +64,7 @@ public class RutaCorta extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, -1, -1));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -87,11 +94,26 @@ public class RutaCorta extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Nombre: jButton2ActionPerformed Descripcion general: Evento al presionar
+     * el boton "Encontrar cadena", toma el nombre de la proteina de origen y destino,
+     * ejecuta el algoritmo de Dijkstra y muestra la ruta y peso total en el area de texto 
+     * Tipo de retorno: void
+     *
+     * @param evt Descripcion: el evento de accion generado por el boton
+     */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         this.jTextArea1.setText(g.Dijkstra(this.nombre.getText(), this.rel.getText()));
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    /**
+     * Nombre: jButton3ActionPerformed Descripcion general: Evento al presionar el 
+     * boton "Regresar", cierra la ventana actual de busqueda de rutas y vuelve 
+     * a abrir el Menu principal Tipo de retorno: void
+     *
+     * @param evt Descripcion: el evento de accion generado por el boton
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         Menu m = new Menu(g);
@@ -99,7 +121,11 @@ public class RutaCorta extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Nombre: main Descripcion general: Metodo principal que lanza la aplicacion
+     * e inicializa el aspecto visual (Look and feel) de la ventana de Ruta Corta
+     * Tipo de retorno: void
+     *
+     * @param args Descripcion: argumentos de linea de comandos enviados al ejecutar
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

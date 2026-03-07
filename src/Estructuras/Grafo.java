@@ -407,6 +407,14 @@ public class Grafo {
         return "Ruta metabólica más corta:\n" + textoRuta + "\nResistencia total (Costo): " + nodoDestino.distancia;
     }
 
+    /**
+     * Nombre: leerArchivo Descripcion general: Lee un archivo en formato CSV linea 
+     * por linea para extraer informacion sobre las interacciones, creando de manera 
+     * automatica los vertices (proteinas) y las aristas (relaciones) con sus 
+     * respectivos pesos dentro del grafo Tipo de retorno: void
+     *
+     * @param archivo Descripcion: el objeto File que representa el archivo CSV que contiene los datos a cargar en el sistema
+     */
     public void leerArchivo(File archivo) {
         String linea;
         String separador = ",";
@@ -438,6 +446,14 @@ public class Grafo {
         }
     }
 
+    /**
+     * Nombre: guardarArchivo Descripcion general: Exporta la estructura actual 
+     * del grafo (red de proteinas y sus conexiones) a un archivo de texto en formato CSV, 
+     * asegurando que no se dupliquen las aristas guardadas mediante banderas de control.
+     * Tipo de retorno: void
+     *
+     * @param archivo Descripcion: el objeto File que representa la ubicacion y el nombre del archivo destino donde se guardaran los datos
+     */
     public void guardarArchivo(File archivo) {
         try (PrintWriter pw = new PrintWriter(new FileWriter(archivo, false))) {
 
@@ -473,6 +489,16 @@ public class Grafo {
         }
     }
     
+    /**
+     * Nombre: existeArista Descripcion general: Verifica si existe una conexion o
+     * arista directa entre una proteina de origen y una de destino dentro del grafo
+     * Tipo de retorno: boolean (Primitivo)
+     *
+     * @param origen Descripcion: el identificador o nombre de la proteina de origen
+     * @param destino Descripcion: el identificador o nombre de la proteina de destino
+     * @return Descripcion: true si existe la arista entre ambas proteinas, false
+     * en caso contrario
+     */
     public boolean existeArista(String origen, String destino) {
     Proteina p = this.vertices.buscar(origen);
         if (p != null && p.adyacentes != null) {
