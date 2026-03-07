@@ -13,10 +13,9 @@ import java.io.PrintWriter;
 import javax.swing.JOptionPane;
 
 /**
- * Clase que representa una red de interaccion proteina-proteina (PPIN) Esta
- * estructura modela los contactos físicos entre proteínas de una bacteria
- * patógena mediante un grafo no dirigido para identificar dianas terapéuticas.
- *
+ * Clase que representa una red de interaccion proteina-proteina la cual modela 
+ * los contactos físicos entre proteínas mediante un grafo no dirigido para 
+ * identificar dianas terapéuticas.
  * @author Daniel Saracual
  * @author Emily Rodriguez
  * @version 1.0
@@ -33,9 +32,9 @@ public class Grafo {
     public int numero_nodos;
 
     /**
-     * Nombre: Grafo (Constructor) Descripción General: Inicializa una nueva
-     * instancia de proteinas con una lista vacia y un contador en cero Tipo de
-     * retorno: N/A (Constructor)
+     * Nombre: Grafo (Constructor) Descripción General: Inicializa una nueva 
+     * instancia de proteinas con una lista vacia y un contador en cero 
+     * Tipo de retorno: N/A (Constructor)
      */
     public Grafo() {
         this.vertices = new Lista_Proteinas();
@@ -43,11 +42,11 @@ public class Grafo {
     }
 
     /**
-     * Nombre: crearproteina Descripcion general: Crea un nuevo objeto de tipo
-     * proteina y lo agrega a la lista de vertices del grafo si este no existe
+     * Nombre: crearproteina
+     * Descripcion general: Crea un nuevo objeto de tipo proteina y lo agrega a
+     * la lista de vertices del grafo si este no existe
      * Tipo de retorno: void
-     *
-     * @param name Tipo: String. Descripcion: el unico nombre que identifica a
+     * @param name Tipo: String. Descripcion: el unico nombre que identifica a 
      * la proteina
      */
     public void crearproteina(String name) {
@@ -63,12 +62,13 @@ public class Grafo {
     }
 
     /**
-     * Nombre: insertararistas Descripcion general: Establece la relacion del
-     * grafo no dirigido entre dos proteinas existentes Tipo de retorno: void
-     *
+     * Nombre: insertararistas
+     * Descripcion general: Establece la relacion del grafo no dirigido entre 
+     * dos proteinas existentes
+     * Tipo de retorno: void
      * @param name1 Tipo: String. Descripcion: Nombre de la primera proteina
      * @param name2 Tipo: String. Descripcion: Nombre de la segunda proteina
-     * @param peso Tipo: int. Descripcion: Valor numerico que representa el
+     * @param peso Tipo: int. Descripcion: Valor numerico que representa el 
      * costo o resistencia de la relacion
      * @see #buscar(java.lang.String)
      */
@@ -98,12 +98,12 @@ public class Grafo {
     }
 
     /**
-     * Nombre: eliminarvertice Descripcion general: elimina una proteina del
-     * sistema y remueve todas las referencias de adyacencia en las demas
-     * proteinas Tipo de retorno: void
-     *
-     * @param name Tipo: String. Descripcion: Nombre de la proteina que va a ser
-     * eliminada de la red
+     * Nombre: eliminarvertice Descripcion general: elimina una proteina del 
+     * sistema y remueve todas las referencias de adyacencia en las demas 
+     * proteinas 
+     * Tipo de retorno: void
+     * @param name Tipo: String. Descripcion: Nombre de la proteina que va a 
+     * ser eliminada de la red
      */
     public void eliminarvertice(String name) {
         if (vertices.buscar(name) != null) {
@@ -142,9 +142,10 @@ public class Grafo {
     }
 
     /**
-     * Nombre: buscar Descripcion general: localiza una instancia de proteina
-     * dentro del grafo(red) Tipo de retorno: Proteina (objeto)
-     *
+     * Nombre: buscar 
+     * Descripcion general: localiza una instancia de proteina dentro del
+     * grafo(red) 
+     * Tipo de retorno: Proteina (objeto)
      * @param name Tipo: String. Descripcion: Nombre de la proteina a buscar
      * @return Descripcion: El objeto proteina correspondiente al nombre, o null
      * en el caso de que no se encuentre en la red
@@ -154,11 +155,12 @@ public class Grafo {
     }
 
     /**
-     * Nombre: Imprimir Descripcion general: genera una representacion virtual
+     * Nombre: Imprimir
+     * Descripcion general: genera una representacion virtual
      * en formato de texto de toda la red de interaccion proteina-proteina.
      * Recorre cada proteina del grafo y concatena sus conexiones (adyacencias)
-     * en una cadena esructurada. Tipo de retorno: String
-     *
+     * en una cadena esructurada
+     * Tipo de retorno: String
      * @return Descripcion: una cadena de caracteres que contiene la lista de
      * adyacencia completa, donde cada línea muestra una proteína seguida de sus
      * interacciones mediante el símbolo "-->"
@@ -181,9 +183,10 @@ public class Grafo {
     }
 
     /**
-     * Nombre: hubs Descripcion general: Calcula que proteina posee el mayor
-     * numero de conexiones directas Tipo de retorno: Proteina (Objeto)
-     *
+     * Nombre: hubs 
+     * Descripcion general: Calcula que proteina posee el mayor numero de 
+     * conexiones directas 
+     * Tipo de retorno: Proteina (Objeto)
      * @return Descripcion: la proteina considerada como la diana terapeutica
      * primaria por su alta centralidad
      */
@@ -211,12 +214,12 @@ public class Grafo {
     }
 
     /**
-     * Nombre: DFS_rec. Descripción general: Método recursivo que realiza el
+     * Nombre: DFS_rec. 
+     * Descripción general: Método recursivo que realiza el
      * recorrido en profundidad a partir de una proteína específica. Marca cada
      * proteína como visitada y la añade al complejo proteico actual para
-     * identificar grupos de proteínas que trabajan juntas. Tipo de retorno:
-     * ListaAdy (Objeto)
-     *
+     * identificar grupos de proteínas que trabajan juntas.
+     * Tipo de retorno: ListaAdy (Objeto)
      * @param proteina Tipo: Proteina. Descripcion: la proteina actual desde el
      * cual se continua la exploracion
      * @param recorrido Tipo: ListaAdy. Descripcion: La lista acumuladora que
@@ -241,10 +244,10 @@ public class Grafo {
     
 
     /**
-     * Nombre: DFS Descripcion general: realiza una busqueda de profundidad para
-     * identificar complejos proteicos (componentes conexos) Tipo de retorno:
-     * ListaAdy[]
-     *
+     * Nombre: DFS 
+     * Descripcion general: realiza una busqueda de profundidad para
+     * identificar complejos proteicos (componentes conexos) 
+     * Tipo de retorno: ListaAdy[]
      * @return Descripción: Arreglo de listas donde cada posición contiene un
      * grupo de proteínas interactuantes.
      * @see #DFS_rec(Estructuras.Proteina, Estructuras.ListaAdy)
@@ -272,9 +275,10 @@ public class Grafo {
     }
 
     /**
-     * Nombre: BFS Descripcion general: realiza un recorrido en anchura para
-     * identificar todos los componentes conexos del grafo Tipo de retorno:
-     * ListaAdy[] (arreglo de listas)
+     * Nombre: BFS 
+     * Descripcion general: realiza un recorrido en anchura para identificar
+     * todos los componentes conexos del grafo 
+     * Tipo de retorno:  ListaAdy[] (arreglo de listas)
      *
      * @return Descripcion: un arreglo donde cada posicion contiene una lista de
      * proteinas que forman un complejo proteico
@@ -324,13 +328,15 @@ public class Grafo {
         return recorridos;
     }
     /**
-     * Nombre : Dijkstra Descripcion general: aplica el algoritmo e ruta mas
+     * Nombre : Dijkstra 
+     * Descripcion general: aplica el algoritmo e ruta mas
      * corta para encontrar el camino de menor resistencia o costo entre dos
-     * proteinas Tipo de retorno:
+     * proteinas
+     * Tipo de retorno: String
      *
-     * @param origen Tipo: Proteina. Descripcion: punto de partida de la señal
+     * @param origen Tipo: String. Descripcion: punto de partida de la señal
      * biologica
-     * @param destino Tipo: Proteina. Descripcion: proteina objetivo final
+     * @param destino Tipo: String. Descripcion: proteina objetivo final
      * @return Descripcion: Lista enlazada con la secuencia optima de proteinas
      * para la ruta mas corta.
      */
@@ -408,12 +414,14 @@ public class Grafo {
     }
 
     /**
-     * Nombre: leerArchivo Descripcion general: Lee un archivo en formato CSV linea 
+     * Nombre: leerArchivo
+     * Descripcion general: Lee un archivo en formato CSV linea 
      * por linea para extraer informacion sobre las interacciones, creando de manera 
      * automatica los vertices (proteinas) y las aristas (relaciones) con sus 
-     * respectivos pesos dentro del grafo Tipo de retorno: void
-     *
-     * @param archivo Descripcion: el objeto File que representa el archivo CSV que contiene los datos a cargar en el sistema
+     * respectivos pesos dentro del grafo 
+     * Tipo de retorno: void
+     * @param archivo Tipo: File. Descripcion: el objeto File que
+     * representa el archivo CSV que contiene los datos a cargar en el sistema
      */
     public void leerArchivo(File archivo) {
         String linea;
@@ -447,12 +455,13 @@ public class Grafo {
     }
 
     /**
-     * Nombre: guardarArchivo Descripcion general: Exporta la estructura actual 
+     * Nombre: guardarArchivo 
+     * Descripcion general: Exporta la estructura actual 
      * del grafo (red de proteinas y sus conexiones) a un archivo de texto en formato CSV, 
      * asegurando que no se dupliquen las aristas guardadas mediante banderas de control.
      * Tipo de retorno: void
      *
-     * @param archivo Descripcion: el objeto File que representa la ubicacion y el nombre del archivo destino donde se guardaran los datos
+     * @param archivo Tipo: File. Descripcion: el objeto File que representa la ubicacion y el nombre del archivo destino donde se guardaran los datos
      */
     public void guardarArchivo(File archivo) {
         try (PrintWriter pw = new PrintWriter(new FileWriter(archivo, false))) {
@@ -490,12 +499,12 @@ public class Grafo {
     }
     
     /**
-     * Nombre: existeArista Descripcion general: Verifica si existe una conexion o
+     * Nombre: existeArista
+     * Descripcion general: Verifica si existe una conexion o
      * arista directa entre una proteina de origen y una de destino dentro del grafo
-     * Tipo de retorno: boolean (Primitivo)
-     *
-     * @param origen Descripcion: el identificador o nombre de la proteina de origen
-     * @param destino Descripcion: el identificador o nombre de la proteina de destino
+     * Tipo de retorno: boolean 
+     * @param origen Tipo: String. Descripcion: el identificador o nombre de la proteina de origen
+     * @param destino Tipo: String. Descripcion: el identificador o nombre de la proteina de destino
      * @return Descripcion: true si existe la arista entre ambas proteinas, false
      * en caso contrario
      */

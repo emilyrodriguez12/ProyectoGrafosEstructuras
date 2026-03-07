@@ -8,8 +8,14 @@ import Estructuras.Grafo;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author MARYCRIS
+ * Nombre: ModificarGrafos 
+ * Descripcion general: Interfaz grafica (JFrame) que permite al usuario alterar 
+ * la estructura del grafo agregando nuevas proteinas, eliminandolas, 
+ * o creando nuevas relaciones (aristas) con un peso determinado
+ * Tipo de retorno: void (Clase)
+ * @author Daniel Saracual
+ * @author Emily Rodriguez
+ * @version 1.0
  */
 public class ModificarGrafos extends javax.swing.JFrame {
 
@@ -17,7 +23,12 @@ public class ModificarGrafos extends javax.swing.JFrame {
     static Grafo g;
 
     /**
-     * Creates new form ModificarGrafos
+     * Nombre: ModificarGrafos (Constructor) Descripcion general: Crea e inicializa
+     * los componentes de la ventana de modificacion, recibiendo y guardando el grafo 
+     * a modificar Tipo de retorno: ModificarGrafos (Objeto)
+     *
+     * @param g Tipo: Grafo. Descripcion: el grafo actual sobre el que se haran 
+     * las modificaciones
      */
     public ModificarGrafos(Grafo g) {
         initComponents();
@@ -44,6 +55,7 @@ public class ModificarGrafos extends javax.swing.JFrame {
         rel = new javax.swing.JTextField();
         peso = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         jButton3.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jButton3.setText("Agregar proteina ");
@@ -63,13 +75,13 @@ public class ModificarGrafos extends javax.swing.JFrame {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, -1));
 
         nombre.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        nombre.setText("Nombre");
+        nombre.setText("Nombre proteína");
         nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nombreActionPerformed(evt);
             }
         });
-        jPanel1.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 210, 50));
+        jPanel1.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 210, 50));
 
         jButton4.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jButton4.setText("Agregar proteina ");
@@ -78,7 +90,7 @@ public class ModificarGrafos extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, -1, 50));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, -1, 50));
 
         jButton6.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jButton6.setText("Eliminar proteina");
@@ -87,7 +99,7 @@ public class ModificarGrafos extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 130, -1, 50));
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 230, -1, 50));
 
         jButton1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jButton1.setText("Agregar relación");
@@ -96,15 +108,15 @@ public class ModificarGrafos extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 210, 210, 50));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 470, 210, 50));
 
         rel.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        rel.setText("Relación");
-        jPanel1.add(rel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, 210, 50));
+        rel.setText("Proteína relación");
+        jPanel1.add(rel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 300, 210, 50));
 
         peso.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         peso.setText("Peso");
-        jPanel1.add(peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, 210, 50));
+        jPanel1.add(peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 400, 210, 50));
 
         jButton5.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jButton5.setText("Regresar");
@@ -115,21 +127,50 @@ public class ModificarGrafos extends javax.swing.JFrame {
         });
         jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 660, -1, -1));
 
+        jLabel1.setText("Esta proteína se relacionará con el nombre proteína");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 360, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 770));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    /**
+     * Nombre: nombreActionPerformed Descripcion general: Evento disparado al
+     * realizar una accion sobre el campo de texto del nombre de la proteina
+     * Tipo de retorno: void
+     *
+     * @param evt Descripcion: el evento de accion generado por el campo de texto
+     */
     private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nombreActionPerformed
 
+    /**
+     * Nombre: jButton3ActionPerformed 
+     * Descripcion general: Evento al presionar el boton  de agregar proteina. 
+     * Inserta el vertice y muestra 
+     * mensaje 
+     * Tipo de retorno: void
+     * @param evt Tipo: java.awt.event.ActionEvent. Descripcion: el evento de 
+     * accion generado por el boton
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         g.crearproteina(this.nombre.getText());
         JOptionPane.showMessageDialog(rootPane, "Proteina insertada correctamente");
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    /**
+     * Nombre: jButton4ActionPerformed 
+     * Descripcion general: Evento al presionar el boton "Agregar proteina". 
+     * Valida que el nombre no este vacio y que la proteina no exista antes de 
+     * insertarla en el grafo
+     * Tipo de retorno: void
+     * @param evt Tipo: java.awt.event.ActionEvent. Descripcion: el evento de 
+     * accion generado por el boton
+     */
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
     String nuevaProteina = nombre.getText().trim();
@@ -147,6 +188,15 @@ public class ModificarGrafos extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    /**
+     * Nombre: jButton6ActionPerformed 
+     * Descripcion general: Evento al presionar el boton "Eliminar proteina".
+     * Valida que el campo no este vacio y que el vertice exista antes de removerlo
+     * del grafo 
+     * Tipo de retorno: void
+     * @param evt Tipo: java.awt.event.ActionEvent. Descripcion: el evento de 
+     * accion generado por el boton
+     */
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
     String valor = nombre.getText().trim();
@@ -164,6 +214,15 @@ public class ModificarGrafos extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    /**
+     * Nombre: jButton1ActionPerformed 
+     * Descripcion general: Evento al presionar el  boton "Agregar relación". 
+     * Valida campos vacios, existencia de nodos, y previene ciclos para luego
+     * insertar una nueva arista con peso 
+     * Tipo de retorno: void
+     * @param evt Tipo: java.awt.event.ActionEvent. Descripcion: el evento de
+     * accion generado por el boton
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     String p1 = nombre.getText().trim();
@@ -207,6 +266,14 @@ public class ModificarGrafos extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * Nombre: jButton5ActionPerformed 
+     * Descripcion general: Evento al presionar el boton "Regresar", cierra la 
+     * ventana actual de modificacion y vuelve a abrir el Menu principal
+     * Tipo de retorno: void
+     * @param evt Tipo: java.awt.event.ActionEvent. Descripcion: el evento de 
+     * accion generado por el boton
+     */
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         Menu m = new Menu(g);
@@ -214,7 +281,14 @@ public class ModificarGrafos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Nombre: main 
+     * Descripcion general: Metodo principal que lanza la aplicacion
+     * e inicializa el aspecto visual (Look and feel) de la ventana
+     * ModificarGrafos
+     * Tipo de retorno: void
+     *
+     * @param args Tipo: String. Descripcion: argumentos de linea de 
+     * comandos enviados al ejecutar
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -244,6 +318,7 @@ public class ModificarGrafos extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nombre;

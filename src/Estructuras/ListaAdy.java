@@ -6,7 +6,8 @@ package Estructuras;
 
 /**
  * Nombre: ListaAdy.
- * Descripción general: TDA que gestiona una lista enlazada de nodos de adyacencia para representar las conexiones de una proteína.
+ * Descripción general: TDA que gestiona una lista enlazada de nodos de 
+ * adyacencia para representar las conexiones de una proteína.
  * @author Emily Rodriguez
  * @author Daniel Saracual
  * @version 1.0
@@ -35,7 +36,8 @@ public class ListaAdy {
     
     /**
      * Nombre: insertar
-     * Descripción general: Agrega una nueva interacción (proteína y peso) al final de la lista
+     * Descripción general: Agrega una nueva interacción (proteína y peso) al 
+     * final de la lista
      * Tipo de retorno: void
      * @param proteina Tipo: Proteina. Descripción: La proteína a insertar
      * @param peso Tipo: int. Descripcion: El valor de la interacción
@@ -56,7 +58,8 @@ public class ListaAdy {
      
      /**
       * Nombre: eliminar.
-     * Descripción general: Remueve una proteína de la lista de adyacencia según su nombre.
+     * Descripción general: Remueve una proteína de la lista de adyacencia según 
+     * su nombre.
      * Tipo de retorno: void.
       * @param proteina Tipo: String. Descripción: Nombre de la proteína a eliminar
       */
@@ -106,9 +109,11 @@ public class ListaAdy {
      
      /**
       * Nombre: imprimir
-     * Descripción general: Genera una cadena con los nombres de todas las proteínas en la lista
+     * Descripción general: Genera una cadena con los nombres de todas las proteínas 
+     * en la lista
      * Tipo de retorno: String
-      * @return Descripción: Cadena de texto separada por comas con los nombres de los vecinos
+      * @return Descripción: Cadena de texto separada por comas con los nombres
+      * de los vecinos
       */
       public String imprimir(){
         if(this.pfirst!=null){

@@ -6,7 +6,8 @@ package Estructuras;
 
 /**
  *Nombre: Lista_Proteinas
- * Descripción general: TDA que gestiona una lista enlazada simple de objetos Proteina para representar los vértices del grafo
+ * Descripción general: TDA que gestiona una lista enlazada simple de objetos 
+ * Proteina para representar los vértices del grafo
  * @author Emily Rodriguez
  * @author Daniel Saracual
  * @version 1.0

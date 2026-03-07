@@ -8,22 +8,25 @@ import Estructuras.Grafo;
 import javax.swing.JOptionPane;
 
 /**
- * Nombre: Hubs Descripcion general: Interfaz grafica (JFrame) encargada
- * de visualizar cual es la proteina con la mayor cantidad de conexiones
- * directas (Hub) dentro del grafo Tipo de retorno: void (Clase)
+ * Nombre: Hubs
+ * Descripcion general: Interfaz grafica (JFrame) encargada  de visualizar cual 
+ * es la proteina con la mayor cantidad de conexiones directas (Hub) dentro del grafo 
+ * Tipo de retorno: void (Clase)
  * @author Daniel Saracual
  * @author Emily Rodriguez
+ * @version 1.0
  */
 public class Hubs extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Hubs.class.getName());
     static Grafo g;
     /**
-     * Nombre: Hubs (Constructor) Descripcion general: Crea e inicializa
-     * los componentes de la ventana de Hubs, recibiendo el grafo con la red 
-     * de proteinas Tipo de retorno: Hubs (Objeto)
-     *
-     * @param g Descripcion: el grafo actual que contiene las proteinas a evaluar
+     * Nombre: Hubs (Constructor) 
+     * Descripcion general: Crea e inicializa los componentes de la ventana d
+     * e Hubs, recibiendo el grafo con la red de proteinas
+     * Tipo de retorno: Hubs (Objeto)
+     * @param g Tipo: Grafo. Descripcion: el grafo actual que contiene las proteinas 
+     * a evaluar
      */
     public Hubs(Grafo g) {
         initComponents();
@@ -31,11 +34,7 @@ public class Hubs extends javax.swing.JFrame {
         this.g = g;
     }
 
-    /**
-     * Nombre: initComponents Descripcion general: Metodo generado automaticamente
-     * por el editor de formularios para inicializar y posicionar los componentes 
-     * graficos de la ventana Tipo de retorno: void
-     */
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -86,11 +85,13 @@ public class Hubs extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * Nombre: jButton2ActionPerformed Descripcion general: Evento ejecutado al presionar
-     * el boton "Nodo con mayor conexiones", calcula la proteina central (hub) y muestra
-     * su nombre y cantidad de enlaces en el area de texto Tipo de retorno: void
-     *
-     * @param evt Descripcion: el evento de accion generado por el boton
+     * Nombre: jButton2ActionPerformed 
+     * Descripcion general: Evento ejecutado al presionar el boton "Nodo con 
+     * mayor conexiones", calcula la proteina central (hub) y muestra
+     * su nombre y cantidad de enlaces en el area de texto 
+     * Tipo de retorno: void
+     * @param evt Tipo: java.awt.event.ActionEvent. Descripcion: el evento de 
+     * accion generado por el boton
      */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -103,11 +104,12 @@ public class Hubs extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
-     * Nombre: jButton3ActionPerformed Descripcion general: Evento ejecutado al presionar
-     * el boton "Regresar", cierra la ventana actual de Hubs y muestra el Menu principal
+     * Nombre: jButton3ActionPerformed 
+     * Descripcion general: Evento ejecutado al presionar el boton "Regresar", 
+     * cierra la ventana actual de Hubs y muestra el Menu principal
      * Tipo de retorno: void
-     *
-     * @param evt Descripcion: el evento de accion generado por el boton
+     * @param evt Tipo: java.awt.event.ActionEvent. Descripcion: el evento de 
+     * accion generado por el boton
      */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
@@ -117,11 +119,12 @@ public class Hubs extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
-     * Nombre: main Descripcion general: Metodo principal que lanza la aplicacion
+     * Nombre: main 
+     * Descripcion general: Metodo principal que lanza la aplicacion
      * e inicializa el aspecto visual (Look and feel) de la ventana de Hubs
      * Tipo de retorno: void
-     *
-     * @param args Descripcion: argumentos de linea de comandos enviados al ejecutar
+     * @param args Tipo: String. Descripcion: argumentos de linea de comandos 
+     * enviados al ejecutar
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
